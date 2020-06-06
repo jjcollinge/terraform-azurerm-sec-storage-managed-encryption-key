@@ -4,6 +4,7 @@ variable "resource_group_name" {
   description = "The Resource Group for which the Storage Account resides in."
 }
 
+#Passing the storage account object to account for missing attribute field returned from data azurerm_storage_account
 variable "storage_account" {
   type        = any
   description = "The Storage Account to apply the Managed Encryption Key to."
