@@ -11,7 +11,7 @@ module "naming" {
   source = "git::https://github.com/Azure/terraform-azurerm-naming"
 }
 resource "azurerm_resource_group" "test_group" {
-  name     = "${module.naming.resource_group.slug}-${module.naming.storage_managed_encryption_key.slug}-min-test-${local.unique_name_stub}"
+  name     = "${module.naming.resource_group.slug}-${module.naming.storage_managed_encryption_key.slug}-max-test-${local.unique_name_stub}"
   location = "uksouth"
 }
 
