@@ -28,14 +28,42 @@ variable "client_key_permissions" {
   type        = list(string)
   description = "A list of client key permissions associated with the newly generated key."
   #Provide these permissions by default to allow for the creation of a new managed encryption key by key vault
-  default = ["get", "create", "unwrapkey", "wrapkey", "update", "delete"]
+  default = ["get", "delete", "list", "purge", "sign", "verify", "create", "unwrapkey", "wrapkey", "update"]
+}
+
+variable "client_secret_permissions" {
+  type        = list(string)
+  description = "A list of client secret permissions associated with the newly generated key."
+  #Provide these permissions by default to allow for the creation of a new managed encryption key by key vault
+  default = []
+}
+
+variable "client_storage_permissions" {
+  type        = list(string)
+  description = "A list of client storage permissions associated with the newly generated key."
+  #Provide these permissions by default to allow for the creation of a new managed encryption key by key vault
+  default = ["backup", "delete", "deletesas", "get", "getsas", "list", "listsas", "purge", "set", "setsas", "update"]
 }
 
 variable "storage_key_permissions" {
   type        = list(string)
   description = "A list of storage key permissions associated with the newly generated key."
   #Provide these permissions by default to allow for the creation of a new managed encryption key by key vault
-  default = ["get", "create", "unwrapkey", "wrapkey", "update", "delete"]
+  default = ["get", "delete", "list", "purge", "sign", "verify", "create", "unwrapkey", "wrapkey", "update"]
+}
+
+variable "storage_secret_permissions" {
+  type        = list(string)
+  description = "A list of storage key permissions associated with the newly generated key."
+  #Provide these permissions by default to allow for the creation of a new managed encryption key by key vault
+  default =  []
+}
+
+variable "storage_storage_permissions" {
+  type        = list(string)
+  description = "A list of storage storage permissions associated with the newly generated key."
+  #Provide these permissions by default to allow for the creation of a new managed encryption key by key vault
+  default = ["backup", "delete", "deletesas", "get", "getsas", "list", "listsas", "purge", "set", "setsas", "update"]
 }
 
 variable "key_type" {
