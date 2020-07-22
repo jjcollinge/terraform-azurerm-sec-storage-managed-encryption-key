@@ -32,7 +32,7 @@ variable "client_key_permissions" {
   type        = list(string)
   description = "A list of client key permissions associated with the newly generated key."
   #Provide these permissions by default to allow for the creation of a new managed encryption key by key vault
-  default = ["get", "create", "unwrapkey", "wrapkey"]
+  default = ["get", "create", "delete", "unwrapkey", "wrapkey"]
 }
 
 variable "client_secret_permissions" {
@@ -53,7 +53,7 @@ variable "storage_key_permissions" {
   type        = list(string)
   description = "A list of storage key permissions associated with the newly generated key."
   #Provide these permissions by default to allow for the creation of a new managed encryption key by key vault
-  default = ["get", "create", "unwrapkey", "wrapkey"]
+  default = ["get", "create", "delete", "unwrapkey", "wrapkey"]
 }
 
 variable "storage_secret_permissions" {
