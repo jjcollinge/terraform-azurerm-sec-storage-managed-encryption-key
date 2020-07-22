@@ -24,7 +24,13 @@ resource "azurerm_key_vault_access_policy" "client" {
   key_permissions    = var.client_key_permissions
   secret_permissions = []
 }
-
+  
+resource "azurerm_role_assignment" "role_assignment" {
+  scope                = var.storage_account.id
+  role_definition_name = "Storage Account Key Operator Service Role"
+  principal_id         = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093" # Azure Key Vault Public Cloud Application ID
+}
+  
 resource "azurerm_key_vault_key" "storage_key" {
   name         = module.naming.key_vault_key.name
   key_vault_id = var.key_vault_id
@@ -35,6 +41,7 @@ resource "azurerm_key_vault_key" "storage_key" {
   depends_on = [
     azurerm_key_vault_access_policy.client,
     azurerm_key_vault_access_policy.storage,
+    azurerm_role_assignment.role_assignment,
   ]
 }
 
