@@ -1,8 +1,4 @@
 #Required variables
-variable "resource_group_name" {
-  type        = string
-  description = "The Resource Group for which the Storage Account resides in."
-}
 
 #Passing the storage account object to account for missing attribute field returned from data azurerm_storage_account
 variable "storage_account" {
@@ -10,7 +6,7 @@ variable "storage_account" {
   description = "The Storage Account to apply the Managed Encryption Key to."
 }
 
-variable "key_vault_name" {
+variable "key_vault_id" {
   type        = string
   description = "The Key Vault to store the Managed Encryption Key in."
 }
@@ -59,8 +55,3 @@ variable "key_options" {
   description = "The key options of the key that Azure Key Vault will generate."
   default     = []
 }
-
-
-
-
-
