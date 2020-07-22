@@ -1,3 +1,7 @@
+provider "azuread" {
+  version = "=0.7.0"
+}
+
 provider "azurerm" {
   version = "~>2.0"
   features {}
@@ -28,7 +32,7 @@ resource "azurerm_key_vault_access_policy" "client" {
 resource "azurerm_role_assignment" "role_assignment" {
   scope                = var.storage_account.id
   role_definition_name = "Storage Account Key Operator Service Role"
-  principal_id         = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093" # Azure Key Vault Public Cloud Application ID
+  principal_id         = azuread_application.key_vault.object_id
 }
   
 resource "azurerm_key_vault_key" "storage_key" {
