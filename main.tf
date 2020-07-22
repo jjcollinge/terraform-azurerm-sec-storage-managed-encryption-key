@@ -10,19 +10,21 @@ module "naming" {
 }
 
 resource "azurerm_key_vault_access_policy" "storage" {
-  key_vault_id       = data.azurerm_key_vault.key_vault.id
-  tenant_id          = data.azurerm_client_config.current.tenant_id
-  object_id          = var.storage_account.identity.0.principal_id
-  key_permissions    = var.storage_key_permissions
-  secret_permissions = []
+  key_vault_id        = data.azurerm_key_vault.key_vault.id
+  tenant_id           = data.azurerm_client_config.current.tenant_id
+  object_id           = var.storage_account.identity.0.principal_id
+  key_permissions     = var.storage_key_permissions
+  secret_permissions  = var.storage_secret_permissions
+  storage_permissions = var.storage_storage_permissions
 }
 
 resource "azurerm_key_vault_access_policy" "client" {
-  key_vault_id       = data.azurerm_key_vault.key_vault.id
-  tenant_id          = data.azurerm_client_config.current.tenant_id
-  object_id          = data.azurerm_client_config.current.object_id
-  key_permissions    = var.client_key_permissions
-  secret_permissions = []
+  key_vault_id        = data.azurerm_key_vault.key_vault.id
+  tenant_id           = data.azurerm_client_config.current.tenant_id
+  object_id           = data.azurerm_client_config.current.object_id
+  key_permissions     = var.client_key_permissions
+  secret_permissions  = var.client_secret_permissions
+  storage_permissions = var.client_storage_permissions
 }
 
 resource "azurerm_key_vault_key" "storage_key" {
