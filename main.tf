@@ -1,9 +1,5 @@
-provider "azuread" {
-  version = "~>0.11.0"
-}
-
 provider "azurerm" {
-  version = "~>2.0"
+  version = "~>2.19"
   features {}
 }
 
