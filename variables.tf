@@ -84,8 +84,8 @@ variable "key_options" {
   default     = []
 }
 
-variable "key_vault_application_id" {
+variable "key_vault_object_id" {
   type        = string
-  description = "The AAD application ID used by Azure Key Vault. See: https://docs.microsoft.com/en-us/azure/key-vault/secrets/overview-storage-keys#service-principal-application-id"
-  default     = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093" # For Azure Government use 7e7c393b-45d0-48b1-a35e-2905ddf8183c
+  description = "The AAD object ID used by Azure Key Vault. See: https://docs.microsoft.com/en-us/azure/key-vault/secrets/overview-storage-keys#service-principal-application-id"
+  default     = "93c27d83-f79b-4cb2-8dd4-4aa716542e74" # For Azure Government use cdf90028-ceee-4d20-b0a3-f1c4ac357e66
 }

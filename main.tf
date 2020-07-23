@@ -32,7 +32,7 @@ resource "azurerm_key_vault_access_policy" "client" {
 resource "azurerm_role_assignment" "role_assignment" {
   scope                = var.storage_account.id
   role_definition_name = "Storage Account Key Operator Service Role"
-  principal_id         = data.azuread_service_principal.key_vault.object_id
+  principal_id         = var.key_vault_object_id
 }
 
 resource "azurerm_key_vault_key" "storage_key" {
