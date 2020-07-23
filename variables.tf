@@ -42,7 +42,7 @@ variable "client_storage_permissions" {
   type        = list(string)
   description = "A list of client storage permissions associated with the newly generated key."
   #Provide these permissions by default to allow for the creation of a new managed encryption key by key vault
-  default = ["backup", "delete", "deletesas", "get", "getsas", "list", "listsas", "purge", "set", "setsas", "update"]
+  default = ["backup", "delete", "deletesas", "get", "getsas", "list", "listsas", "purge", "recover", "regeneratekey", "restore", "set", "setsas", "update"]
 }
 
 variable "storage_key_permissions" {
@@ -63,7 +63,7 @@ variable "storage_storage_permissions" {
   type        = list(string)
   description = "A list of storage storage permissions associated with the newly generated key."
   #Provide these permissions by default to allow for the creation of a new managed encryption key by key vault
-  default = ["backup", "delete", "deletesas", "get", "getsas", "list", "listsas", "purge", "set", "setsas", "update"]
+  default = ["backup", "delete", "deletesas", "get", "getsas", "list", "listsas", "purge", "recover", "regeneratekey", "restore", "set", "setsas", "update"]
 }
 
 variable "key_type" {
