@@ -28,13 +28,13 @@ resource "azurerm_key_vault_access_policy" "client" {
   key_permissions    = var.client_key_permissions
   secret_permissions = []
 }
-  
+
 resource "azurerm_role_assignment" "role_assignment" {
   scope                = var.storage_account.id
   role_definition_name = "Storage Account Key Operator Service Role"
-  principal_id         = data.azuread_application.key_vault.object_id
+  principal_id         = data.azuread_service_principal.key_vault.object_id
 }
-  
+
 resource "azurerm_key_vault_key" "storage_key" {
   name         = module.naming.key_vault_key.name
   key_vault_id = var.key_vault_id

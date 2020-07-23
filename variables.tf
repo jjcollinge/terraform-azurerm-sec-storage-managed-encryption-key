@@ -56,7 +56,7 @@ variable "storage_secret_permissions" {
   type        = list(string)
   description = "A list of storage key permissions associated with the newly generated key."
   #Provide these permissions by default to allow for the creation of a new managed encryption key by key vault
-  default =  []
+  default = []
 }
 
 variable "storage_storage_permissions" {
@@ -85,7 +85,7 @@ variable "key_options" {
 }
 
 variable "key_vault_application_id" {
-  type = string
+  type        = string
   description = "The AAD application ID used by Azure Key Vault. See: https://docs.microsoft.com/en-us/azure/key-vault/secrets/overview-storage-keys#service-principal-application-id"
   default     = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093" # For Azure Government use 7e7c393b-45d0-48b1-a35e-2905ddf8183c
 }
